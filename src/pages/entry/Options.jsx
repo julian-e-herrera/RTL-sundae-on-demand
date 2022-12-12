@@ -16,9 +16,11 @@ const Options = ({ optionType }) => {
     const { totals } = useOrderDetails()
 
     useEffect(() => {
+
         axios.get(`http://localhost:3030/${optionType}`)
             .then(response => setItems(response.data))
             .catch(error => {
+                console.log(error)
                 setError(true)
             })
     }, [optionType])
