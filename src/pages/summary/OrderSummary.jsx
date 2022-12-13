@@ -4,7 +4,7 @@ import { useOrderDetails } from "../../contexts/OrderDetails";
 import { formatCurrency } from "../../utilities";
 
 
-const OrderSummary = () => {
+const OrderSummary = ({ setOrderPhase }) => {
 
     const { totals, optionCounts } = useOrderDetails()
     const scoopArray = Object.entries(optionCounts.scoops)
@@ -29,7 +29,7 @@ const OrderSummary = () => {
             <ul>
                 {toppingList}
             </ul>
-            <SummaryForm />
+            <SummaryForm setOrderPhase={setOrderPhase} />
         </div>
     )
 }
